@@ -1,0 +1,24 @@
+#author: jayabrata180402@gmail.com
+services:
+  api_gateway:
+    build: ./http-api-gateway
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./http-api-gateway/src:/usr/src/app/src
+    command: npm run start:dev
+  users_microservice:
+    build: ./users-microservice
+    volumes:
+      - ./users-microservice/src:/usr/src/app/src
+    command: npm run start:dev
+  payments_microservice:
+    build: ./payments-microservice
+    volumes:
+      - ./payments-microservice/src:/usr/src/app/src
+    command: npm run start:dev    
+  nats:
+    image: nats:latest
+    ports:
+      - "4222:4222"
+      
