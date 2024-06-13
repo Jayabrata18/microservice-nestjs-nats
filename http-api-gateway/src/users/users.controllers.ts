@@ -11,8 +11,8 @@ export class UsersController {
     console.log(createusrDto);
     return this.natsClient
       .send({ cmd: 'create_user' }, createusrDto)
-      .subscribe((res) => {
-        console.log(res);
-      });
+      // .subscribe((res) => {
+      //   console.log(res);
+      // });
   }
 }
