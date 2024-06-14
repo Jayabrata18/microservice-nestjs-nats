@@ -1,5 +1,5 @@
 import { Controller } from '@nestjs/common';
-import { MessagePattern, Payload } from '@nestjs/microservices';
+import { MessagePattern, Payload, EventPattern } from '@nestjs/microservices';
 import { CreateUserDto } from './dto/create-user.dto';
 @Controller()
 export class UsersMicroserviceController {
@@ -7,5 +7,9 @@ export class UsersMicroserviceController {
   createUser(@Payload() data: CreateUserDto) {
     console.log(data);
     return data;
+  }
+  @EventPattern('payment_created')
+  paymentCreated(@Payload() data: any) {
+    console.log(data);
   }
 }
