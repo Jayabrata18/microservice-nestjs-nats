@@ -12,9 +12,15 @@ export class UserService {
         const newUser = this.userRepository.create(createUserDto);
         return this.userRepository.save(newUser);
     }
-    getUserById(id: number): Promise<User> {
-        console.log("geting data in users.service:", id);
-        return this.userRepository.findOneBy({ id: id });
+    // getUserById(id: number): Promise<User> {
+    //     console.log("geting data in users.service:", id);
+    //     return this.userRepository.findOneBy({ id });
+    // }
+    async getUserById(id: number): Promise<User> {
+        console.log("Fetching user by ID in UserService:", id);
+        const user = await this.userRepository.findOneBy({ id });
+        console.log("Fetched user in UserService:", user);
+        return user;
     }
 
 }

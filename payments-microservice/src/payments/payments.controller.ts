@@ -14,6 +14,7 @@ export class PaymentsMicroserviceController {
     async createPayment(@Payload() createPaymentDto: CreatePaymentDto) {
         console.log("payment controller:",createPaymentDto);
         const payment = await this.paymentsService.createPayment(createPaymentDto);
+        console.log("payment controller:",payment);
         this.natsClient.emit('payment_created', payment);
         return payment;
     }
