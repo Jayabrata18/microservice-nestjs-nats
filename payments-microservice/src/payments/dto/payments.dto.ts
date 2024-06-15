@@ -1,7 +1,8 @@
-import { IsEmail, IsNotEmpty,IsNumber, IsString, MinLength } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsNumber, IsString, MinLength } from 'class-validator';
 
 export class CreatePaymentDto {
-    // userId: string;
+    @IsNotEmpty()
+    userId: number;
     @IsNumber()
     amount: number;
     // currency: string;

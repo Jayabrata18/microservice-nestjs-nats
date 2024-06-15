@@ -9,7 +9,6 @@ export class Payment {
     id: number;
     @Column({nullable: true})
     userId: number;
-
     @Column({})
     amount: number;
 

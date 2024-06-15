@@ -12,5 +12,9 @@ export class UserService {
         const newUser = this.userRepository.create(createUserDto);
         return this.userRepository.save(newUser);
     }
+    getUserById(id: number): Promise<User> {
+        console.log("geting data in users.service:", id);
+        return this.userRepository.findOneBy({ id: id });
+    }
 
 }
